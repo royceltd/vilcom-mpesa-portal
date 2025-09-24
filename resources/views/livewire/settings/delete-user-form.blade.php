@@ -10,20 +10,20 @@ new class extends Component {
     /**
      * Delete the currently authenticated user.
      */
-    public function deleteUser(Logout $logout): void
-    {
-        $this->validate([
-            'password' => ['required', 'string', 'current_password'],
-        ]);
+    // public function deleteUser(Logout $logout): void
+    // {
+    //     $this->validate([
+    //         'password' => ['required', 'string', 'current_password'],
+    //     ]);
 
-        tap(Auth::user(), $logout(...))->delete();
+    //     tap(Auth::user(), $logout(...))->delete();
 
-        $this->redirect('/', navigate: true);
-    }
+    //     $this->redirect('/', navigate: true);
+    // }
 }; ?>
 
 <section class="mt-10 space-y-6">
-    <div class="relative mb-5">
+    <!-- <div class="relative mb-5">
         <flux:heading>{{ __('Delete account') }}</flux:heading>
         <flux:subheading>{{ __('Delete your account and all of its resources') }}</flux:subheading>
     </div>
@@ -32,7 +32,7 @@ new class extends Component {
         <flux:button variant="danger" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')" data-test="delete-user-button">
             {{ __('Delete account') }}
         </flux:button>
-    </flux:modal.trigger>
+    </flux:modal.trigger> -->
 
     <flux:modal name="confirm-user-deletion" :show="$errors->isNotEmpty()" focusable class="max-w-lg">
         <form method="POST" wire:submit="deleteUser" class="space-y-6">
